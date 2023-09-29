@@ -1,0 +1,29 @@
+<html>
+<htad>
+    <title>transfar</title>
+</htad>
+<body>
+    <div>
+        <form method="post"" name="contactform" id="contactform">
+            
+	    Name:<input type="text"name="A1"><br> <br>
+            Gmail:<input type="text"name="B1"><br> <br>
+            Mob number:<input type="text"name="C1"><br> <br>
+            Message:<input type="text"name="D1"><br><br>
+		submit:<input type="submit" value="send message" class="button nm" id="submit1">
+        </form>
+<script>
+			const scriptURL = 'https://script.google.com/macros/s/AKfycbxlOQuld2H9xO8TTMUOaksCh8eZRCIk9A6O3lIb-KEEnJR1zpSw3ArxIcJ1ormmuvw/exec'
+			const form = document.forms['contactform']
+		  
+			form.addEventListener('submit', e => {
+			  e.preventDefault()
+			  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+				.then(response => alert("Thank you! your form is submitted successfully." ))
+				.then(() => {  window.location.reload(); })
+				.catch(error => console.error('Error!', error.message))
+			})
+		  </script>
+    </div>
+</body>
+</html>
